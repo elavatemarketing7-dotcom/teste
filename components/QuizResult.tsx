@@ -10,67 +10,65 @@ interface QuizResultProps {
 
 const QuizResult: React.FC<QuizResultProps> = ({ answers, onContinue }) => {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center p-0 md:p-6 overflow-x-hidden">
-      <div className="w-full max-w-md bg-emerald-50 flex-grow md:rounded-3xl shadow-2xl overflow-hidden relative flex flex-col">
+    <div className="h-screen w-full bg-white flex flex-col items-center overflow-hidden">
+      <div className="w-full max-w-md h-full bg-emerald-50 flex flex-col relative overflow-hidden">
         
-        {/* Header Photo Section with Frame */}
-        <div className="p-4 bg-emerald-deep">
-          <div className="moldura-premium aspect-[4/5] w-full overflow-hidden rounded-sm">
-            <div className="w-full h-full overflow-hidden">
-              <img 
-                src={IMAGES.hero} 
-                alt={EXPERT_NAME}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+        {/* Header Photo Section - Compacted for Mobile */}
+        <div className="relative h-[30vh] w-full overflow-hidden bg-emerald-deep">
+          <img 
+            src={IMAGES.hero} 
+            alt={EXPERT_NAME}
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent"></div>
+          
+          <div className="absolute top-4 left-0 right-0 text-center z-20">
+            <span className="bg-emerald-400 text-emerald-950 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shadow-lg">
+              Avaliação Concluída
+            </span>
           </div>
         </div>
 
-        <div className="absolute top-10 left-0 right-0 text-center px-4 z-20">
-          <span className="bg-emerald-400 text-emerald-950 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full animate-bounce">
-            Avaliação Concluída
-          </span>
-        </div>
+        {/* Content Section - Tightened spacing */}
+        <div className="bg-white flex-grow -mt-6 rounded-t-[2.5rem] relative z-10 px-6 pt-5 pb-4 text-center shadow-[0_-8px_30px_rgba(0,0,0,0.1)] flex flex-col justify-between">
+          <div>
+            <div className="w-10 h-1 bg-emerald-100 rounded-full mx-auto mb-4"></div>
+            
+            <h2 className="text-emerald-900 text-xl font-bold leading-tight">Perfil Compatível.</h2>
+            <p className="text-emerald-600 font-serif italic text-lg mb-2">Você é a paciente ideal.</p>
 
-        {/* Content Section */}
-        <div className="bg-white p-8 flex-grow -mt-4 rounded-t-3xl relative z-10 text-center shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-          <div className="w-12 h-1 bg-emerald-100 rounded-full mx-auto mb-6"></div>
-          
-          <h2 className="text-emerald-900 text-2xl font-bold mb-1">Perfil Compatível.</h2>
-          <p className="text-emerald-600 font-serif italic text-xl mb-6">Você é a paciente ideal.</p>
+            <p className="text-gray-600 leading-snug text-sm mb-4 px-2">
+              Com base nas suas respostas, o Método da <span className="font-bold text-emerald-700">Dra. {EXPERT_NAME}</span> consegue entregar exatamente a <span className="font-semibold text-emerald-800">naturalidade e segurança</span> que você procura.
+            </p>
+          </div>
 
-          <p className="text-gray-700 leading-relaxed text-lg mb-10">
-            Com base nas suas respostas, o Método da <span className="font-bold text-emerald-700">Dra. {EXPERT_NAME}</span> consegue entregar exatamente a <span className="font-semibold">naturalidade e segurança</span> que você procura.
-          </p>
-
-          <div className="space-y-4">
+          <div className="space-y-2 mb-2">
             <button 
-              className="block w-full py-5 bg-emerald-600 text-white font-bold rounded-2xl shadow-xl hover:bg-emerald-700 active:scale-95 transition-all text-lg btn-pulse"
+              className="block w-full py-3.5 bg-emerald-600 text-white font-bold rounded-xl shadow-lg active:scale-[0.98] transition-all text-base btn-pulse uppercase tracking-tight"
             >
               1. Enviar minha avaliação Dra.
             </button>
 
             <button 
-              className="block w-full py-4 bg-emerald-50 text-emerald-700 font-bold rounded-2xl border border-emerald-100 active:scale-95 transition-all"
+              className="block w-full py-3 bg-emerald-50 text-emerald-700 font-bold rounded-xl border border-emerald-100 active:scale-[0.98] transition-all text-sm uppercase"
             >
               2. Agendar Avaliação
             </button>
 
             <button 
               onClick={onContinue}
-              className="block w-full py-3 text-gray-400 text-sm font-medium hover:text-emerald-600 active:opacity-60 transition-all uppercase tracking-widest"
+              className="block w-full py-2 text-gray-400 text-[10px] font-bold hover:text-emerald-600 active:opacity-60 transition-all uppercase tracking-[0.2em]"
             >
               3. Continuar no site
             </button>
           </div>
-        </div>
 
-        {/* Small Trust Badge */}
-        <div className="bg-emerald-50 p-4 text-center border-t border-emerald-100">
-            <p className="text-[10px] text-emerald-800/60 uppercase font-bold tracking-widest">
-                Exclusividade Garantida • Vila Velha - ES
-            </p>
+          {/* Small Trust Badge - Fixed at bottom */}
+          <div className="pt-2 border-t border-emerald-50">
+              <p className="text-[8px] text-emerald-800/50 uppercase font-black tracking-widest">
+                  Exclusividade Garantida • Vila Velha - ES
+              </p>
+          </div>
         </div>
       </div>
     </div>
